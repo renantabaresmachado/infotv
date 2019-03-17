@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use App\User;
 class UserTest extends TestCase
 {
     /**
@@ -13,8 +13,25 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testCreateUser()
     {
-        $this->assertTrue(true);
+        $mkp = \App\MarketPlace::where('name', 'Infocel')->first();
+        User::create([
+           'email' => 'contato@infocel.com.br',
+           'password' => '123456',
+            'market_place_id' => $mkp->id       
+            ]);
+            $this->assertDatabaseHas('users', [
+            'email' => 'contato@infocel.com.br'
+        ]);
+        $mkp1 = \App\MarketPlace::where('name', 'fashionModa')->first();
+        User::create([
+           'email' => 'contato@fashionmoda.com.br',
+           'password' => '123456',
+            'market_place_id' => $mkp->id       
+            ]);
+            $this->assertDatabaseHas('users', [
+            'email' => 'contato@fashionmoda.com.br'
+        ]);
     }
 }

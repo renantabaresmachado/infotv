@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/marketPlace/register', 'MarketPlaceController@create')->name('marketPlaceRegister');
 Route::post('/marketPlace/store', 'MarketPlaceController@store')->name('marketPlaceStore');
+Route::get('/Procuct/register', 'productController@create')->name('productRegister');
+Route::post('/product/store', 'ProductController@store')->name('productStore');

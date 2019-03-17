@@ -17,8 +17,8 @@ class User extends Authenticatable
     protected $fillable = [
          'email', 'password', 'market_place_id',
     ];
-    public function userable(){
-        return $this->morphTo();
+    public function marketPlace(){
+        return $this->belongsTo('App\MarketPlace');
     }
 
     /**

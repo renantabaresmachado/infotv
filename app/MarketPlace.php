@@ -9,10 +9,11 @@ class MarketPlace extends Model
     protected $fillable = [
         'name', 'description', 'site', 'cnpjCpf' ,
     ];
-    public function products(){
-        return $this->morphMany('App\Product', 'productable');
-    }
+    
     public function users(){
-        return $this->morphMany('App\User', 'userable');
+        return $this->hasMany('App\User');
+    }
+    public function products(){
+        return $this->hasMany('App\Product');
     }
 }

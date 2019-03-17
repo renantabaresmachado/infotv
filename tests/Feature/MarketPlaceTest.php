@@ -29,7 +29,7 @@ class MarketPlaceTest extends TestCase
            'name' => 'fashionModa',
            'description' => 'Loja de roupas e acessórios',
             'site' => 'www.fashionmoda.com.br',
-            'cnpjCpf' => '27.036.452/0001-80'           
+            'cnpjCpf' => '27036452000180'           
             ]);
         $this->assertDatabaseHas('market_places', [
             'name' => 'fashionModa'
