@@ -13,7 +13,11 @@ class ProductController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+       $products = Product::paginate(3);
+       $mkps = \App\MarketPlace::all();
+        return view('welcome')
+                ->with('products' , $products)
+                ->with('marketplaces' , $mkps);
     }
 
     /**
@@ -56,6 +60,11 @@ class ProductController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function search(Request $request) {
+        
+        dd($request->all());
+        
+    }
     public function show($id) {
         //
     }

@@ -18,7 +18,7 @@ class UserTest extends TestCase
         $mkp = \App\MarketPlace::where('name', 'Infocel')->first();
         User::create([
            'email' => 'contato@infocel.com.br',
-           'password' => '123456',
+           'password' => bcrypt (123456),
             'market_place_id' => $mkp->id       
             ]);
             $this->assertDatabaseHas('users', [
@@ -27,8 +27,8 @@ class UserTest extends TestCase
         $mkp1 = \App\MarketPlace::where('name', 'fashionModa')->first();
         User::create([
            'email' => 'contato@fashionmoda.com.br',
-           'password' => '123456',
-            'market_place_id' => $mkp->id       
+           'password' =>  bcrypt (123456),
+            'market_place_id' => $mkp1->id       
             ]);
             $this->assertDatabaseHas('users', [
             'email' => 'contato@fashionmoda.com.br'
