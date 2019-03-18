@@ -71,7 +71,7 @@
             </div>
         </nav>
 
-        <div class="row">
+        <div  class="container-fluid">
             <h1 style="text-align: center;">Produtos</h1>
             <hr>
             <form class="form form-inline" action="{{route('productsearch')}}" method="POST">
