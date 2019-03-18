@@ -7,17 +7,19 @@ use App\Product;
 
 class ProductController extends Controller {
 
+    private $totalPage = 3;
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index() {
-       $products = Product::paginate(3);
-       $mkps = \App\MarketPlace::all();
+        $products = Product::paginate($this->totalPage);
+        $mkps = \App\MarketPlace::all();
         return view('welcome')
-                ->with('products' , $products)
-                ->with('marketplaces' , $mkps);
+                        ->with('products', $products)
+                        ->with('marketplaces', $mkps);
     }
 
     /**
@@ -36,23 +38,26 @@ class ProductController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        date_default_timezone_set('America/Sao_Paulo');
+        $date = date('Y-m-d');
         $file = $request->file('imagem');
         $file->move('productImg', $file->getClientOriginalName());
         $prod = Product::create([
                     'name' => $request->input('name'),
                     'description' => $request->input('description'),
-                    'value' => doubleval ($request->input('value')),
+                    'value' => doubleval($request->input('value')),
                     'paymentMethod' => $request->input('paymentMethod'),
                     'imagem' => $file->getClientOriginalName(),
+                    'created' => $date,
                     'market_place_id' => $request->input('market_place_id')
         ]);
         \Session::flash('message', [
             'msg' => 'OK Seu produto ' . $prod->name . ' foi cadastrado com sucesso!',
             'class' => "alert alert-success"
         ]);
-        
+
         return redirect()->route('home');
-    }   
+    }
 
     /**
      * Display the specified resource.
@@ -60,11 +65,17 @@ class ProductController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request) {
-        
-        dd($request->all());
-        
+    public function search(Request $request, Product $product) {
+
+        $dataForm = $request->except('_token');
+        $products = $product->search($dataForm, $this->totalPage);
+        $mkps = \App\MarketPlace::all();
+        return view('welcome')
+                        ->with('products', $products)
+                        ->with('dataForm', $dataForm)
+                        ->with('marketplaces', $mkps);
     }
+
     public function show($id) {
         //
     }

@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->double('value');
             $table->string('paymentMethod', 100);
             $table->string('imagem');
+            $table->date('created');
             $table->unsignedBigInteger('market_place_id');
             $table->timestamps();
             $table->foreign('market_place_id')->references('id')->on('market_places');

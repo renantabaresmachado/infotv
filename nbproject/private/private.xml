@@ -5,7 +5,6 @@
         <group>
             <file>file:/C:/www/testeInfoTv/resources/views/welcome.blade.php</file>
             <file>file:/C:/www/testeInfoTv/app/Http/Controllers/ProductController.php</file>
-            <file>file:/C:/www/testeInfoTv/resources/views/auth/register.blade.php</file>
             <file>file:/C:/www/testeInfoTv/routes/web.php</file>
         </group>
     </open-files>

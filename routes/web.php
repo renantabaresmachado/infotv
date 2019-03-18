@@ -19,7 +19,7 @@ Route::get('/', 'ProductController@index')->name('indexProducts');
 
 Auth::routes();
 
-Route::post('/product/search' , 'ProductController@search')->name('productsearch');
+Route::any('/product/search' , 'ProductController@search')->name('productsearch');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/marketPlace/register', 'MarketPlaceController@create')->name('marketPlaceRegister');
 Route::post('/marketPlace/store', 'MarketPlaceController@store')->name('marketPlaceStore');

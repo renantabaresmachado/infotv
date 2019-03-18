@@ -73,19 +73,21 @@
 
         <div class="row">
             <h1 style="text-align: center;">Produtos</h1>
+            <hr>
             <form class="form form-inline" action="{{route('productsearch')}}" method="POST">
                  {{ csrf_field() }}
                 <input class="form-control" type="text" name="name" placeholder="Nome">
                 <input class="form-control" type="text" name="value" placeholder="Valor">
                 <input class="form-control" type="date" name="created_at" placeholder="Data">
                 <select name="marketplace" class="form-control">
-                    <option>--Selecione a Loja--</option>
+                    <option value="">--Selecione a Loja--</option>
                     @foreach($marketplaces as $mkp)
                     <option value="{{$mkp->id}}">{{$mkp->name}}</option>
                     @endforeach
                 </select>
                 <button type="submit" class="btn btn-primary">Pesquisar</button>
             </form>
+            <hr>
             @foreach($products as $product)
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
@@ -93,17 +95,22 @@
                     <div class="caption">
                         <h3>Nome: {{$product->name}}</h3>
                         <h5>Descrição: </h5><p>{{$product->description}}</p>
+                        <h3>valor: {{$product->value}}</h3>
                         <h5>Loja: </h5><p>{{$product->marketplace->name}}</p>
-                        <small><p>Data do cadastro: {{\Carbon\Carbon::parse($product->created_at)->format('d/m/Y')}}</p></small>
+                        <small><p>Data do cadastro: {{\Carbon\Carbon::parse($product->created)->format('d/m/Y')}}</p></small>
                         <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
                     </div>
                 </div>
             </div>
             @endforeach
+            <hr>
             <div class="row">
                 <div class="col-lg-6 col-offset-6 centered">
-                    <center> {{ $products->links() }}</center>
-
+                    @if(isset($dataForm))
+                    {{ $products->appends($dataForm)->links() }}
+                    @else
+                    {{ $products->links() }}
+                    @endif
                 </div>
             </div>
         </div>
