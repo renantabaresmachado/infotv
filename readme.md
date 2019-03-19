@@ -10,12 +10,12 @@
 # Recursos utilizados:
 
 
-- PHP 7.
-- Laravel Framework 5.5.45.
-- Composer.
-- SGDB PostgressSQL 11.
-- PGAdmin 4.
-- Git bash.
+- PHP 7.\n
+- Laravel Framework 5.5.45.\n
+- Composer.\n
+- SGDB PostgressSQL 11.\n
+- PGAdmin 4.\n
+- Git bash.\n
 
 # Passos para rodar a aplicação:
 
@@ -30,7 +30,7 @@
 -13-DB_PASSWORD="senha".
 } 
 - rodar os testes "utilizei os testes para realizar um dump inicial no banco, para efeito de facilitar o teste da aplicação e criar um ambiente favorável para teste"
-- passos para rodar os teste e rodar a aplicação, execute os seguintes comandos no git bash:{
+- passos para rodar os teste e a aplicação, execute os seguintes comandos no git bash:{
 -php artisan migrate.
 -vendor/bin/phpunit.
 -php artisan serve.
