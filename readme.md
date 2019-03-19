@@ -35,11 +35,11 @@
 - vendor/bin/phpunit.
 - php artisan serve.
 }
-- abrir o navegador e digitar o endereço"http://localhost:8000"{
+- abrir o navegador e digitar o endereço"http://localhost:8000".
 - nessa tela será possivel visualizar a lista de produtos com os filtros descritos no enunciado do teste.
 - para cadastrar um Marketplace acesse o link  "CADASTRAR ESTABELECIMENTO".
 - para cadastrar um novo produto acesse o link "ACESSAR"{.
-- utilize um cadatro novo ou algum dos cadastrados nos casos de teste{.
+- utilize um cadastro novo ou algum dos cadastrados nos casos de teste{.
 - user: contato@fashionmoda.com.br.
 - senha: 123456.
 ou
@@ -47,6 +47,6 @@ ou
 - senha: 123456.
 }
 
-## estou a disposição para eventuais dúvidas;
+# estou a disposição para eventuais dúvidas;
 no seu aguardo.
 Renan.
